@@ -235,3 +235,172 @@ console.log(checkType(null))
 console.log(checkType([]))
 console.log(checkType({}))
 ```
+
+---
+
+## Ch 03 연산자와 구문
+
+산술
+
+```js
+console.log(1 + 2)
+console.log(5 - 7)
+console.log(3 * 4)
+console.log(10 / 2)
+console.log(7 % 5)
+
+function isEven(num) {
+    return num % 2 === 0
+}
+
+console.log(isEven(3))      // false
+console.log(isEven(12))     // true
+
+
+```
+
+할당 
+
+```js
+let a = 3
+
+// a = a + 2
+a %= 2
+
+console.log(a)
+
+```
+
+증감
+
+```js
+let a = 3
+
+a += 1
+
+console.log(++a) //5
+console.log(--a) //4
+console.log(a)   //3
+```
+
+부정 
+
+```js
+console.log(!true)
+console.log(!false)
+
+console.log(!0)   // true
+console.log(!!0)  // false
+console.log(!!!0) // true
+
+console.log(!{})  // false
+console.log(![])  // false
+```
+
+비교
+
+```js
+const a = 1
+const b = 3
+
+console.log( a == b )   // false
+
+console.log( a != b )   // true
+
+console.log( a === b )  // false
+
+console.log( a !== b )   // true
+
+console.log( a > b )   // false
+
+console.log( a >= b )   // false
+
+```
+
+논리 
+
+```js
+// AND 연산자
+
+const a = true
+const b = true
+
+if (a && b) {
+    console.log('모두가 참!')
+}
+
+// OR(또는) 연산자
+
+if (a || b) {
+    console.log('하나 이상이 참!')
+}
+
+console.log(true && false)   // false
+console.log(1 && 0)          // 0
+console.log(1 && 2 && 0)     // 0
+console.log(1 && 0 && 2)     // 0
+console.log('A' && 'B' && '')
+console.log('A' && 'B' && 'C')
+
+console.log(false || true)  // true
+console.log(0 || 1)    // 1
+console.log(false || 0 || {})  // {}
+console.log(false || [] || null)  // {}
+console.log(false || 0 || NaN)  // NaN
+
+```
+
+병합
+
+```js
+const n = 0
+
+const num1 = n || 7
+
+console.log(num1)  // 7
+
+// Nullish 병합 연산자 사용헌 경유
+const num2 = n ?? 7
+console.log(num2)  // 0
+
+console.log(null ?? 1)  // 1
+console.log(undefined ?? 2)  // 2
+console.log(null ?? undefined)  // undefined
+console.log(null ?? 1 ?? 2) // 1
+console.log(false ?? 1 ?? 2)  // false
+console.log(0 ?? 1 ?? 2)  // 0
+``` 
+
+삼항
+
+```js
+// 삼항
+
+const a = 1
+
+if (a < 2) {
+    console.log('참!')
+} else {
+    console.log('거짓...')
+}
+
+// 삼항 연산자
+// 조건 ? 참 : 거짓
+console.log(a < 2 ? '참!' : '거짓...')  // 참
+
+
+function getAlert(message) {
+    message ? message : '메시지가 존재하지 않습니다.'
+}
+
+console.log(getAlert('안녕하세요~'))
+console.log(getAlert(''))
+
+
+```
+
+전개
+
+```js
+
+```
