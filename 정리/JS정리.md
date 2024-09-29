@@ -399,8 +399,109 @@ console.log(getAlert(''))
 
 ```
 
-전개
+전개 연산자
+
+```js
+const a = [1, 2, 3]
+const b = [4, 5, 6]
+
+const c = a.concat(b)
+console.log(c)
+
+const d = [...a, ...b]
+console.log(d)  // [1, 2, 3, 4, 5, 6]
+
+const a = { x: 1, y: 2}
+const b = { y: 3, z: 4}
+
+const c = Object.assign({}, a, b)
+
+console.log(c) // {x: 1, y: 3, z: 4}
+
+const d = {...a, ...b}
+console.log(d)  // { x: 1, y: 3, z: 4}
+
+function fn(x, y, z) {
+    console.log(x, y, z)
+}
+
+fn(1, 2, 3)
+
+const a = [1, 2, 3]
+
+fn(...a) // 1 2 3
+```
+
+구조 분해 할당
 
 ```js
 
+let b = 0
+let c = 0
+
+const arr = [1, 2, 3];
+// const a = arr[0]
+// const b = arr[1]
+// const c = arr[2]
+
+[, , c] = arr
+
+console.log(c) //  1 2 3
+
+const arr = [1, 2, 3]
+const [a, ...rest] = arr
+
+console.log(a, rest)  // 1 [2, 3]
+
+const obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    x: 7,
+    y: 100
+}
+
+const { x = 4, a: heropy, y: ten = 10 } = obj
+console.log(x, heropy, ten)  // 7 1 100
+
+const obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    x: 7,
+    y: 100
+}
+
+const { c, ...rest } = obj
+
+console.log(c, rest)  
+```
+
+선택적 체이닝
+
+```js
+// const user = undefined
+
+// console.log(user?.name)  // undefined
+
+const userA = {
+    name: 'heropy',
+    age: 26,
+    address: {
+        country: 'korea',
+        city: 'seoul'
+    }
+}
+
+const userB = {
+    name: 'Neo',
+    age: 22
+}
+
+function getCity(user) {
+    return user.address?.city || '주소 없음.'
+}
+
+console.log(getCity(userA))
+console.log(getCity(userB))   // undefined
 ```
