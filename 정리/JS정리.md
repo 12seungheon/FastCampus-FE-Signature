@@ -240,7 +240,7 @@ console.log(checkType({}))
 
 ## Ch 03 연산자와 구문
 
-산술
+#### 산술연산자
 
 ```js
 console.log(1 + 2)
@@ -259,7 +259,7 @@ console.log(isEven(12))     // true
 
 ```
 
-할당 
+#### 할당연산자 
 
 ```js
 let a = 3
@@ -271,7 +271,7 @@ console.log(a)
 
 ```
 
-증감
+#### 증감연산자
 
 ```js
 let a = 3
@@ -283,7 +283,7 @@ console.log(--a) //4
 console.log(a)   //3
 ```
 
-부정 
+#### 부정연산자 
 
 ```js
 console.log(!true)
@@ -297,7 +297,7 @@ console.log(!{})  // false
 console.log(![])  // false
 ```
 
-비교
+#### 비교연산자
 
 ```js
 const a = 1
@@ -317,7 +317,7 @@ console.log( a >= b )   // false
 
 ```
 
-논리 
+#### 논리연산자 
 
 ```js
 // AND 연산자
@@ -350,7 +350,7 @@ console.log(false || 0 || NaN)  // NaN
 
 ```
 
-병합
+#### 병합연산자
 
 ```js
 const n = 0
@@ -371,7 +371,7 @@ console.log(false ?? 1 ?? 2)  // false
 console.log(0 ?? 1 ?? 2)  // 0
 ``` 
 
-삼항
+#### 삼항연산자
 
 ```js
 // 삼항
@@ -399,7 +399,7 @@ console.log(getAlert(''))
 
 ```
 
-전개 연산자
+#### 전개 연산자
 
 ```js
 const a = [1, 2, 3]
@@ -432,7 +432,7 @@ const a = [1, 2, 3]
 fn(...a) // 1 2 3
 ```
 
-구조 분해 할당
+#### 구조 분해 할당
 
 ```js
 
@@ -477,7 +477,7 @@ const { c, ...rest } = obj
 console.log(c, rest)  
 ```
 
-선택적 체이닝
+#### 선택적 체이닝
 
 ```js
 // const user = undefined
@@ -504,4 +504,306 @@ function getCity(user) {
 
 console.log(getCity(userA))
 console.log(getCity(userB))   // undefined
+```
+
+#### if 조건문
+
+```js
+if (조건) {
+    //
+}
+
+if (조건) {
+    //
+} else {
+    //
+}
+
+if (조건) {
+    //
+} else if (조건2) {
+    //
+} else if (조건3) {
+    //
+} else {
+    //
+}
+
+ex
+
+
+function isPositive(number) {
+    if (number > 0) {
+        return '양수'
+    } else if (number < 0) {
+        return '음수'
+    } else {
+        return '0'
+    }
+}
+
+console.log(isPositive(1))  // 양수
+console.log(isPositive(10)) // 양수
+console.log(isPositive(-2)) // 음수
+console.log(isPositive(0))  // 0
+
+switch (조건) {
+    case 값1:
+        // 조건이 '값1'일 때 실행
+        break
+    case 값2:
+        // 조건이 '값2'일 때 실행
+        break
+    default:
+        // 조건이 값1도 값2도 아닐 때 실행
+}
+
+// ex
+
+function price(fruit) {
+    // switch (fruit) {
+    //     case 'Apple':
+    //         return 1000
+    //     case 'Banana':
+    //         return 1500
+    //     case 'Cherry':
+    //         return 2000
+    //     default:
+    //         return 0    
+    // }
+
+    if (fruit === 'Apple') {
+        return 1000
+    } else if (fruit === 'Banana') {
+        return 1500
+    } else if (fruit === 'Cherry') {
+        return 2000
+    } else {
+        return 0
+    }
+}
+
+console.log(price('Apple'))
+console.log(price('Banana'))
+console.log(price('Cherry'))
+console.log(price('Hello'))   // 0
+```
+
+#### For, For of, For in 반복문
+
+```js
+// For 반복문
+
+for (초기화; 조건; 증감) {
+    // 반복 실행할 코드 
+}
+
+for (let i = 9; i > -1; i -=1) {
+    if (i % 2 === 0) {
+        continue 
+    }
+    console.log(i) // 9 7 5 3 1 홀수만 나옴
+}
+
+// For of 반복문
+
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+// for (let i = 0; i < fruits.length; i +=1) {
+//     console.log(fruits[i])
+// }
+
+for (const fruit of fruits) {
+    console.log(fruit)
+}
+
+const users = [
+    {
+        name: 'herropy',
+        age: 85
+    },
+    {
+        name: 'Neo',
+        age: 22
+    },
+    {
+        name: 'Lewis',
+        age: 34
+    }
+]
+
+for (let i = 0; i < users.length; i +=1) {
+    console.log(users[i].name)  // herropy Neo Lewis
+}
+
+for (const user of users) {
+    console.log(user)  
+} 
+
+// For in 반복문
+
+const user = {
+    name: 'herroy',
+    age: 85,
+    isValid: true,
+    email: 'tmdgjs380@gamil.com'
+}
+
+for (const key in user) {
+    console.log(key)
+    console.log(user[key])
+}
+```
+
+#### While, Do While 반복문 
+
+```js
+// While 반복문
+
+let n = 0
+while (n < 4) {
+    console.log(n)
+    n += 1
+}
+
+// Do While 반복문
+
+let n = 0
+
+// while (n) {
+//     console.log(n)
+// }
+
+do {
+    console.log(n)
+    n += 1
+} while (n < 4)
+
+```
+---
+
+## Ch 04 함수
+
+#### 선언과 표현 그리고 호이스팅
+
+```js
+// 함수 선언문
+function hello () {}
+
+// 함수 표현식
+const hello = function () {}
+
+// 호이스팅 (표현식은 x)
+
+hello()
+
+function hello() {
+    console.log('hello')
+}
+
+```
+
+#### 반환 및 종료
+
+```js
+function plus (num) {
+    if (typeof num !== 'number') {
+        console.log('숫자를 입력해주세요')
+        return 0
+    }
+    return num + 1
+}
+
+console.log(plus(2))  //3
+console.log(plus(7))  //8
+console.log(plus())   //NaN
+```
+
+#### 매개변수 패턴
+
+```js
+function sum(a, b) {
+    return a + b
+}
+
+console.log(sum(1, 2))
+console.log(sum(7))  // NaN
+
+// 구조 분해 할당
+
+const user = {
+    name: 'herropy',
+    age: 55,
+    email: 'tmdgjs380@gamil.com'
+}
+
+function getName({name}) {
+    return name
+}
+
+function getEmail({email = '이메일이 없습니다.'}) {
+    return email
+}
+
+console.log(getName(user))
+console.log(getEmail(user))
+
+const fruits = ['Apple', 'Banana', 'Cherry']
+const numbers = [1, 2, 3, 4, 5, 6, 7]
+
+function getSecondItem([, b]) {
+    return b
+}
+
+console.log(getSecondItem(fruits))
+console.log(getSecondItem(numbers))
+
+// 나머지 매개변수
+
+function sum(...rest) {
+    console.log(rest)
+    return rest.reduce(function (acc, cur) {
+        return acc + cur
+    }, 0)
+}
+
+console.log(sum(1, 2))  //3
+console.log(sum(1, 2, 3, 4))    //10
+console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))  // 55
+```
+
+#### 화살표 함수
+
+```js
+// 화살표 함수 (함수 표현식)
+
+function sum(a, b) {
+    return a + b
+}
+
+const sum = (a, b) => {
+    return a + b
+}
+
+console.log(sum(1, 2))
+console.log(sum(10, 20))
+
+const a = () => {}
+const b = (x) => {}
+const c = (x, y) => {}
+const d = x => { return x * x}
+const e = x => x * x
+const f = x => {
+    console.log(x * x)
+    return x * x
+}
+const g = () => { return { a: 1 }}
+const h = () => ({ a: 1})
+const i = () => [1, 2, 3]
+```
+
+#### 즉시실행함수(IIFF)
+
+```js
+
 ```
